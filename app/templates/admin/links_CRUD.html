@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/styles.css">
+    <link rel="shortcut icon" href="../../static/images/linksolution_icon.png" type="image/x-icon">
+    <title>Admin</title>
+</head>
+<body>
+    <header>
+        <img src="../../static/images/linksolution_logo.png" alt="Linksolution logo" class="header__img">
+    </header>
+    <main class="container">
+        <div class="crud-container">
+            <div></div>
+            <div class="form-container">
+                <form method="POST" class="form-create" id="createLink-Form" enctype="multipart/form-data">
+                    <label for="imageInput" class="icon-file-input">
+                        <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
+                            <path d="M4 5h13v7h2V5c0-1.103-.897-2-2-2H4c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h8v-2H4V5z"/>
+                            <path d="m8 11-3 4h11l-4-6-3 4z"/>
+                            <path d="M19 14h-2v3h-3v2h3v3h2v-3h3v-2h-3z"/>
+                        </svg>
+                        <input type="file" id="imageInput" name="image" accept="image/*" class="form-create__input form-create__input--file">
+                    </label>
+                    <input type="text" id="urlInput" name="url" class="form-create__input form-create__input--url" placeholder="URL" autocomplete="off">
+                    <input type="text" id="nameInput" name="name" class="form-create__input form-create__input--name" placeholder="Nombre" autocomplete="off">
+                    <button type="submit" class="form-create__submit">Agregar enlace</button>
+                </form>
+                <div class="edit-buttons edit-buttons--invisible">
+                    <button id="acceptButton" class="accept-edit">Aceptar</button>
+                    <button id="cancelButton" class="cancel-edit">Cancelar</button>
+                </div>
+            </div>
+            <div class="trash-can" id="trash-can">
+                <img class="trash-can__lid" id="trash-can__lid" src="../../static/images/trash-can-lid.png" alt="" draggable="false">
+                <img class="trash-can__body" id="trash-can__body" src="../../static/images/trash-can-body.png" alt="" draggable="false">
+            </div>
+        </div>
+        <ul class="link-list" id="link-list">
+            {% for link in links %}
+                <li class="link-list__item" data-id="{{ link.id }}" data-url="{{ link.url }}" tabindex="0">
+                    <div class="edit-overlay edit-overlay--hover" data-link="{{ link }}">
+                        <button class="edit-button" data-id="{{ link.id }}"></button>
+                    </div>
+                    <form class="edit-form" action="">
+                        <div class="link-image">
+                            <label for="file-input-{{ link.id }}">
+                              <!-- Imagen principal que se actualizará al seleccionar un archivo -->
+                              <img class="link-image__preview" src="../../static/links_images/{{ link.img_src }}" alt="Seleccionar imagen">
+                              <!-- Imagen overlay que aparece al hacer hover -->
+                              <img class="link-image__overlay" src="../../static/images/edit-image-icon.svg" alt="Overlay al hacer hover" draggable="false">
+                            </label>
+                            <!-- File input oculto -->
+                            <input type="file" id="file-input-{{ link.id }}" class="link-image__input" name="image" accept="image/*" style="display: none;">
+                        </div>
+                        <span class="measure" style="height: 0; overflow: auto; margin: -1px">{{ link.name }}</span>
+                        <input class="link-name" type="text" name="name" value="{{ link.name }}">
+                        <input class="link-url link-url--invisible" type="text" class="link-list__input" name="url" value="{{ link.url }}">
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer>
+        1. Creá un nuevo enlace completando los campos - 2. Clickeá un enlace existente para editarlo - 3. Arrastra un enlace hacia la papelera para eliminarlo.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script type="module" src="../../static/js/utils.js"></script>
+    <script type="module" src="../../static/js/links_CRUD.js"></script>
+</body>
+</html>

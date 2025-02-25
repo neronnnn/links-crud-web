@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/styles.css">
+    <link rel="shortcut icon" href="../../static/images/linksolution_icon.png" type="image/x-icon">
+    <title>Login</title>
+</head>
+<body>
+    <div class="login__background-img">
+        <section class="login">
+            <form action="/login" method="POST" class="login__form">
+                <img src="../../static/images/linksolution_logo.png" alt="Linksolution logo" class="login__img">
+                <div class="form__inputs">
+                    <div class="login__form-group">
+                        <label for="user" class="login__form-label">Usuario</label>
+                        <input type="text" name="user" id="user" class="login__form-input" required>
+                    </div>
+                    <div class="login__form-group">
+                        <label for="password" class="login__form-label">Contraseña</label>
+                        <input type="password" name="password" id="password" class="login__form-input" required>
+                    </div>
+                </div>
+                <button type="submit" class="login__form-button">Iniciar sesión</button>
+            </form>
+        </section>
+    </div>
+</body>
+</html>

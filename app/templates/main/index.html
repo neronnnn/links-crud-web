@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/styles.css">
+    <link rel="shortcut icon" href="../../static/images/linksolution_icon.png" type="image/x-icon">
+    <title>Enlaces</title>
+</head>
+<body>
+    <header>
+        <img src="../../static/images/linksolution_logo.png" alt="Linksolution logo" class="header__img">
+    </header>
+    <main class="container">
+        <ul class="link-list" id="link-list">
+            {% for link in links %}
+                <li>
+                    <a href="{{ link.url }}" class="link-list__item--hover" target="_blank" rel="noopener noreferrer">
+                        <img class="link-image" src="../../static/links_images/{{ link.img_src }}" alt="Icono de {{ link.name }}">
+                        <span class="link-name">{{ link.name }}</span>
+                    </a>
+                </li>
+            {% endfor %}
+        </ul>
+    </main>
+    <footer>
+        © 2025 LinkSolution SRL. Todos los Derechos Reservados
+    </footer>
+
+</body>
+</html>
+    

@@ -1,0 +1,44 @@
+# Entorno virtual
+venv/
+env/
+ENV/
+.env/
+
+# Variables de entorno
+.env
+.flaskenv
+instance/
+
+# Base de datos
+*.db
+*.sqlite
+*.sqlite3
+
+# Archivos de caché de Python
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Archivos temporales
+*.log
+*.pot
+*.pyc
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+.directory
+
+# Archivos y carpetas de IDEs
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*~
