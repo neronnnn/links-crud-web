@@ -437,6 +437,7 @@ header {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    align-items: center;
     text-decoration: underline;
     color: #114ba8;
     padding: 10px 20px;

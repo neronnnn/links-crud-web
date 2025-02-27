@@ -12,6 +12,9 @@ def create_app():
 
     # Inicializar extensiones
     db.init_app(app)
+    
+    with app.app_context():
+        db.create_all()
 
     # Registrar blueprints
     from app.routes.main import main
